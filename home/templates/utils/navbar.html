@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm py-3">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img 
+        src="" 
+        alt="Room Logo" 
+        width="100" 
+        height="42" 
+        class="me-2 rounded"
+      />
+      <span class="fw-bold fs-5">RoomEase</span>
+    </a>
+
+    <!-- Toggle Button for Mobile -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Menu Items -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/rooms">Rooms</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/bookings">Bookings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+        <li class="nav-item ms-lg-3">
+          <a href="/login" class="btn btn-light btn-sm fw-semibold px-3">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Custom Navbar Styling -->
+<style>
+  .navbar {
+    background: linear-gradient(90deg, #0052cc, #007bff);
+  }
+
+  .navbar-brand span {
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 18px;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .navbar-nav .btn-light {
+    color: #0052cc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-nav .btn-light:hover {
+    background-color: #eaf3ff;
+  }
+</style>
