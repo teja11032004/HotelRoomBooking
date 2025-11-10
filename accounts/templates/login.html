@@ -93,6 +93,7 @@
         id="email"
         placeholder="Enter your email"
         required
+        
       >
     </div>
 
@@ -105,6 +106,7 @@
         id="password"
         placeholder="Enter your password"
         required
+        
       >
     </div>
 
@@ -119,6 +121,11 @@
     <button type="submit" class="btn btn-primary w-100 py-2">
       <i class="bi bi-box-arrow-in-right me-2"></i>Login
     </button>
+    <br>
+    <br>
+    <button  type="button" class="btn btn-primary w-100 py-2" onclick="sendOtp()">
+      <i class="bi bi-box-arrow-in-right me-2"></i>Login With OTP
+    </button>
 
     <p class="text-center mt-4 text-muted">
       Don’t have an account? <a href={% url 'register_page' %}>Create one</a>
@@ -130,5 +137,18 @@
   href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
   rel="stylesheet"
 />
+
+
+<script>
+  function sendOtp(){
+    var email = document.getElementById('email').value
+    if(email==""){
+      alert("Email Cannot be Null")
+      return
+    }
+    window.location.href=`/accounts/send_otp/${email}/`
+
+  }
+</script>
 
 {% endblock %}
