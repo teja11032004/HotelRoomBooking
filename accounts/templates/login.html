@@ -82,6 +82,7 @@
   </div>
 
   <form method="post">
+    {% include "utils/alerts.html"%}
     {% csrf_token %}
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
@@ -120,7 +121,7 @@
     </button>
 
     <p class="text-center mt-4 text-muted">
-      Don’t have an account? <a href="/register">Create one</a>
+      Don’t have an account? <a href={% url 'register_page' %}>Create one</a>
     </p>
   </form>
 </div>

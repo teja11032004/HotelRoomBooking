@@ -63,25 +63,27 @@
     <h3 class="mb-3">Create Your Account</h3>
     <p class="text-muted mb-4">Join the best room booking experience today</p>
     
-    <form>
+    <form method="POST">
+      {% csrf_token %}
+      {% include "utils/alerts.html"%}
       <div class="mb-3 text-start">
         <label for="fullname" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="fullname" placeholder="Enter your name" required>
+        <input type="text" class="form-control" id="fullname" placeholder="Enter your name"  name="name">
       </div>
 
       <div class="mb-3 text-start">
         <label for="email" class="form-label">Email Address</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email"  name="email">
       </div>
 
       <div class="mb-3 text-start">
         <label for="phone" class="form-label">Phone Number</label>
-        <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" required>
+        <input type="text" class="form-control" id="phone" placeholder="Enter your phone number"  name="number">
       </div>
 
       <div class="mb-3 text-start">
         <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+        <input type="password" class="form-control" id="password" placeholder="Create a password"  name="password">
       </div>
 
       <div class="mb-3 text-start">

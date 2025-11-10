@@ -32,17 +32,15 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/rooms">Rooms</a>
+          <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/bookings">Bookings</a>
+          <a class="nav-link" href={% url 'login_page' %}>Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
+          <a class="nav-link" href={% url 'register_page' %}>Register</a>
         </li>
-        <li class="nav-item ms-lg-3">
-          <a href="/login" class="btn btn-light btn-sm fw-semibold px-3">Login</a>
-        </li>
+       
       </ul>
     </div>
   </div>
