@@ -1,0 +1,155 @@
+{% extends "utils/base.html" %}
+
+{% block start %}
+<style>
+  /* Hide navbar for this page */
+  nav.navbar {
+    display: none !important;
+  }
+
+  body {
+    background: linear-gradient(135deg, #0062E6 0%, #33AEFF 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .login-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    transition: all 0.3s ease;
+  }
+
+  .login-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .login-title {
+    font-weight: 700;
+    color: #004aad;
+  }
+
+  .form-control {
+    border-radius: 12px;
+    padding: 10px 14px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(90deg, #0062E6, #33AEFF);
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(90deg, #004aad, #289bff);
+    transform: translateY(-1px);
+  }
+
+  .text-muted a {
+    text-decoration: none;
+    color: #0062E6;
+  }
+
+  .text-muted a:hover {
+    text-decoration: underline;
+  }
+
+  .icon {
+    color: #0062E6;
+    font-size: 1.3rem;
+    margin-right: 10px;
+  }
+
+  footer {
+    display: none;
+  }
+</style>
+
+<div class="login-card">
+  <div class="text-center mb-4">
+    <i class="bi bi-building icon"></i>
+    <h3 class="login-title">Welcome Back</h3>
+    <p class="text-muted mb-0">Log in to your Vendor Account</p>
+  </div>
+
+  <!-- ✅ FIX 1: No need to specify action path, Django will post to same URL -->
+  <!-- ❌ Before: <form action="accounts/vendor-login/" method="POST"> -->
+  <form method="POST">  <!-- ✅ Corrected -->
+    {% include "utils/alerts.html" %}
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        name="email"
+        class="form-control"
+        id="email"
+        placeholder="Enter your email"
+        required
+      >
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        id="password"
+        placeholder="Enter your password"
+        required
+      >
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="rememberMe">
+        <label class="form-check-label" for="rememberMe">Remember me</label>
+      </div>
+      <a href="#" class="small text-muted">Forgot password?</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 py-2">
+      <i class="bi bi-box-arrow-in-right me-2"></i>Login
+    </button>
+    <br><br>
+
+    <button type="button" class="btn btn-primary w-100 py-2" onclick="sendOtp()">
+      <i class="bi bi-box-arrow-in-right me-2"></i>Login With OTP
+    </button>
+
+    <p class="text-center mt-4 text-muted">
+      Don’t have an account? 
+      <!-- ✅ FIX 2: Add quotes around the URL tag -->
+      <!-- ❌ Before: <a href={% url 'vendor_register' %}>Create one</a> -->
+      <a href="{% url 'vendor_register' %}">Create one</a> <!-- ✅ Corrected -->
+    </p>
+  </form>
+</div>
+
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+
+<script>
+  function sendOtp() {
+    var email = document.getElementById('email').value;
+    if (email == "") {
+      alert("Email Cannot be Null");
+      return;
+    }
+    window.location.href = `/accounts/send_otp/${email}/`;
+  }
+</script>
+
+{% endblock %}

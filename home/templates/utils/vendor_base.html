@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Room Booking Application</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f4f7fb;
+      }
+
+      /* Footer Styling */
+      footer {
+        background: linear-gradient(135deg, #0062E6, #33AEFF);
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+        font-size: 0.95rem;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      /* Smooth navbar shadow */
+      nav.navbar {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      /* Page content area */
+      .content-wrapper {
+        min-height: 80vh;
+        padding: 30px 0;
+      }
+      .navbar {
+    background: linear-gradient(90deg, #0052cc, #007bff);
+  }
+
+  .navbar-brand span {
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    margin-right: 18px;
+    font-weight: 500;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link.active {
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
+  .navbar-nav .btn-light {
+    color: #0052cc;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-nav .btn-light:hover {
+    background-color: #eaf3ff;
+  }
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm py-3">
+  <div class="container-fluid">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="/">
+      <img 
+        src="" 
+        alt="Room Logo" 
+        width="100" 
+        height="42" 
+        class="me-2 rounded"
+      />
+      <span class="fw-bold fs-5">RoomEase</span>
+    </a>
+
+    <!-- Toggle Button for Mobile -->
+    <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navbarNav" 
+      aria-controls="navbarNav" 
+      aria-expanded="false" 
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Menu Items -->
+    <div class="navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'vendor_login' %}>Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href={% url 'vendor_register' %}>Register</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+    
+    
+
+    <div class="content-wrapper">
+      {% block start %}
+      {% endblock %}
+    </div>
+
+    <footer class="foot">
+      <p>© 2025 Room & Hotel Booking Application — All Rights Reserved | <a href={% url 'vendor_login' %}>Login Vendor</a>| <a href={% url 'vendor_register'%}>Register Vendor</a></p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

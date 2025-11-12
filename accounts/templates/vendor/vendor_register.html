@@ -1,0 +1,105 @@
+{% extends "utils/base.html" %}
+
+{% block start %}
+<style>
+  /* Hide navbar for this page */
+  nav.navbar {
+    display: none !important;
+  }
+  footer.foot{
+    display: none !important;
+
+  }
+
+  body {
+    background: linear-gradient(135deg, #007bff, #6f42c1);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .register-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 480px;
+    transition: transform 0.3s ease;
+  }
+
+  .register-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .register-card h3 {
+    color: #0d6efd;
+    font-weight: 700;
+  }
+
+  .btn-register {
+    background: linear-gradient(90deg, #0d6efd, #6610f2);
+    border: none;
+  }
+
+  .btn-register:hover {
+    opacity: 0.9;
+  }
+
+  .form-text a {
+    text-decoration: none;
+    color: #0d6efd;
+    font-weight: 500;
+  }
+
+  .form-text a:hover {
+    text-decoration: underline;
+  }
+</style>
+
+<div class="register-container text-center">
+  <div class="register-card">
+    <h3 class="mb-3">Create Your Account</h3>
+    <p class="text-muted mb-4">Join the vendor community</p>
+    
+    <form method="POST">
+      {% csrf_token %}
+      {% include "utils/alerts.html"%}
+      <div class="mb-3 text-start">
+        <label for="fullname" class="form-label">Full Name</label>
+        <input type="text" class="form-control" id="fullname" placeholder="Enter your name"  name="name">
+      </div>
+      <div class="mb-3 text-start">
+        <label for="business_name" class="form-label">Business Name</label>
+        <input type="text" class="form-control" id="business_name" placeholder="Enter your name"  name="business_name">
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email"  name="email">
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="phone" placeholder="Enter your phone number"  name="number">
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Create a password"  name="password">
+      </div>
+
+      <div class="mb-3 text-start">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required>
+      </div>
+
+      <button type="submit" class="btn btn-register w-100 text-white py-2 mt-2">Register</button>
+    </form>
+
+    <p class="form-text mt-4">Already have an account? <a href={% url 'vendor_login' %}>Login here</a></p>
+  </div>
+</div>
+
+{% endblock %}
